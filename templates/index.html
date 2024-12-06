@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MQTT QR Code</title>
+</head>
+<body>
+    <h1>MQTT QR Code Viewer</h1>
+    <div id="qr-container">
+        {% if qr_exists %}
+        <img src="/qr_code" alt="QR Code">
+        <p>QR code will disappear in 30 seconds.</p>
+        {% else %}
+        <p>Waiting for messages...</p>
+        {% endif %}
+    </div>
+    <script>
+        setInterval(() => {
+            window.location.reload();
+        }, 5000); // Refresh every 5 seconds to check for new messages
+    </script>
+</body>
+</html>
